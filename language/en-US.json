@@ -1,0 +1,16 @@
+{
+  "account_value": "Account Value",
+  "since_last_purchase": "Since last purchase",
+  "cash_balance": "Cash Balance",
+  "metal_holdings": "Metal Holdings",
+  "metal_price": "Metal Price",
+  "change": "Change",
+  "home": "Home",
+  "portfolio": "PortFolio",
+  "prices": "Prices",
+  "setting": "Settings",
+  "task_1": "Task 1",
+  "task_2": "Task 2",
+  "get_data": "Get Data",
+  "click_data": "Click the \"Get Data\" button to get the bounds and legs "
+}
