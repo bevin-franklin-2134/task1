@@ -1,12 +1,11 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task1/bloc/data_bloc/events/get_result_event.dart';
 import 'package:task1/bloc/data_bloc/result_bloc.dart';
 import 'package:task1/helpers/utils.dart';
+
+import '../widget/common_widget.dart';
 
 class ResultJsonScreen extends StatelessWidget {
   const ResultJsonScreen({super.key});
@@ -25,14 +24,19 @@ class ResultJsonScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: ListView(
                   children: [
-                    buildCard(
-                        title: "Bounds",
+                    jsonCardWidget(
+                        title: "bounds",
                         value: getPrettyJSONString(
-                            (state.resultModel?.routes ?? []).first.bounds!),context: context),
-                    buildCard(
-                        title: "Legs",
+                            (state.resultModel?.routes ?? []).first.bounds!),
+                        context: context),
+                    jsonCardWidget(
+                        title: "legs",
                         value: getPrettyJSONString(
-                            (state.resultModel?.routes ?? []).first.legs!.first),context: context),
+                            (state.resultModel?.routes ?? [])
+                                .first
+                                .legs!
+                                .first),
+                        context: context),
                   ],
                 ),
               );
@@ -68,41 +72,4 @@ class ResultJsonScreen extends StatelessWidget {
       ),
     );
   }
-
-  Card buildCard({required String title, required String value,context}) {
-    return Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        margin: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(translate(title)),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 2,
-            ),
-            Container(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height*.8
-              ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal, child: Text(value)),
-                ),
-              ),
-            ),
-          ],
-        ));
-  }
-}
-
-String getPrettyJSONString(jsonObject) {
-  var encoder = const JsonEncoder.withIndent("     ");
-  return encoder.convert(jsonObject);
 }

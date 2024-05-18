@@ -38,6 +38,7 @@ dependencies:
   easy_localization: ^3.0.7
   http: ^1.2.1
   flutter_bloc: ^8.1.5
+  dartdoc: ^8.0.4
 
 dev_dependencies:
   flutter_test:

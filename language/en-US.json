@@ -12,5 +12,7 @@
   "task_1": "Task 1",
   "task_2": "Task 2",
   "get_data": "Get Data",
-  "click_data": "Click the \"Get Data\" button to get the bounds and legs "
+  "click_data": "Click the \"Get Data\" button to get the bounds and legs ",
+  "legs": "Legs",
+  "bounds":"Bounds"
 }
